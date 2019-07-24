@@ -1,0 +1,266 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+a{
+	text-decoration:none
+}
+.header-font{
+	font-family:"Times New Roman";
+	height: 78px;
+	line-height:78px;
+}
+
+@content-color:#ecf0f1;
+@color:#bdc3c7;
+.max-width{
+	max-width: 1200px;
+	margin:0 auto;
+}
+// header开始......................................
+.header-box{
+	
+}
+.header{
+	.max-width;
+}
+.header-logo{
+	font-size:33px;
+	display:inline-block;
+	.header-font;
+}
+.span-color{
+	color:#78d5c3;
+}
+// .........................
+.span{
+	font-family:"Times New Roman";
+	font-size: 12px;
+	font-weight: bold;
+	color:@color;
+}
+.header-span{
+	.span;
+	padding-left:12px;
+}
+// .........................
+// header-menu开始.....................
+.header-menu{
+	float: right;
+	.header-font;
+	img{
+		margin-left:24px;
+	}
+	li{
+		list-style:none;
+		padding:10px 10px;
+		display:inline;
+		color:#bdc3c7;
+		font-size: 13px;
+	}
+	li:hover:not(.active){
+		border-radius:5px;
+		background-color: #1abc9c;
+		color:#fff;
+	}
+}
+
+
+// header结束tagline开始....................................
+.tagline{
+	position: relative;
+	.max-width;
+	height: 210px;
+}
+.tagline-left{
+	position:absolute;
+	top:86px;
+	p{
+		.header-span;
+		font-size: 22px;
+		padding-bottom:12px;
+	}
+	span{
+		.header-span;
+		font-size: 15px;
+	}
+}
+.tagline-right{
+	position:absolute;
+	right:0px;
+	top:86px;
+	p{
+		.span;
+		padding-bottom:18px;
+		font-size: 18px;
+	}
+}
+// content开始...........................
+// ........................
+.content-p{
+	font-family:"Times New Roman";
+	font-size: 16px;
+	padding:10px;
+	color:@content-color;
+	font-weight: bold;
+}
+// ........................
+.content{
+	min-width:1200px;
+	background-color:#34495e;
+}
+.content-tip{
+	.max-width;
+	text-align: center;
+	ul{
+		color:@color;
+	}
+	li{
+		display: inline-block;
+		line-height: 50px;
+		.content-p;
+		font-size: 13px;
+	}
+	a{
+		padding:10px;
+		color:@color;
+	}
+}
+//list图片 ..........................
+.content-box{
+	.max-width;
+	text-align: justify;
+}
+.content-box:after{
+	display:inline-block;
+	width: 100%;
+	content:"";
+	// overflow: hidden;
+}
+
+.content-box-img{
+	display: inline-block;
+	text-align: center;
+	margin-bottom:36px;
+	p{
+		.content-p;
+	}
+	span{
+		.content-p;
+		font-size:12px;
+	}
+}
+// bottom开始........................
+.bottom{
+	height:400px;
+	border-bottom:solid 2px @content-color;
+	.max-width;
+}
+.content-box-mes{
+	display: inline-block;
+	margin-top:60px;
+	margin-right:24px;
+	// width:278px;
+	height:300px;
+	vertical-align: middle;
+	h3{
+		.span;
+		font-size: 16px;
+		padding-bottom:40px;
+	}
+}
+// about us......................
+.bottom-about{
+	.content-box-mes;
+	p{
+		.span;
+		width:278px;
+		word-spacing: -1px;
+		font-size: 13px;
+		padding:5px;
+	}
+}
+.cs{
+	margin-top:30px;
+	// height: 38px;
+	img{
+		display: inline-block;
+		vertical-align: middle;
+		padding:12px 14px;
+		background-color:@content-color;
+	}
+}
+// latest posts.....................
+.bottom-latest-posts{
+	.content-box-mes;
+	p{
+		margin-top:3px;
+		.font-14;
+	}
+	span{
+		.font-10;
+	}
+}
+// latest comments..................
+.bottom-latest-comments{
+	.content-box-mes;
+	p{
+		.font-13;
+		width:250px;
+		padding:20px;
+		margin-bottom:15px;
+		background-color: @content-color;
+	}
+}
+// bottom flickr................
+.bottom-flickr{
+	.content-box-mes;
+	margin-right:0px;
+	h3{
+		margin-left:5px;
+	}
+}
+// bottom flickr box...............
+.bottom-flickr-box{
+	width:270px;
+	height: 178px;
+	text-align: justify;
+}
+
+.bottom-flickr-box:after{
+	display:inline-block;
+	width: 100%;
+	content:"";
+	// overflow: hidden;
+}
+// text-align:justify;.............
+.bottom-flickr-box-img{
+	display: inline-block;
+	margin:12px 1px;
+	img:hover{
+		border:solid 2px #1abc9c;
+	}
+}
+// ................................
+.font-10{
+	.span;
+	font-size:10px;
+}
+.font-14{
+	.span;
+	font-size:14px;
+}
+.font-13{
+	.span;
+	font-size:13px;
+}
+// .................................
+// footer开始........................
+.footer{
+	.max-width;
+}
+.footer-copyright{
+	display:inline-block;
+	.header-font;
+	.span;
+}
