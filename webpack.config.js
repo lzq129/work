@@ -5,13 +5,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const env = process.env.NODE_ENV
 console.log(env)
-const entries = getEntry('src/*.js');
+const entries = getEntry('src/{*.js,**/index.js}');
 const config = {
   mode: env,
   entry: entries,
   output: {
     'path':path.resolve(__dirname, 'dist'),
-    'publicPath':'./',
+    'publicPath':'../',
     'filename': '[name].js'
   },
   optimization: {
@@ -26,7 +26,8 @@ const config = {
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
     publicPath:'/',
-    hot: true
+    hot: true,
+    openPage: 'index'
   },
   module: {
     rules: [{
@@ -66,17 +67,25 @@ function getEntry(globPath,common=[]){
 }
 
 function HtmlWebpackPlugins(){
-  const htmlfile = glob.sync('src/*.html')
+  const htmlfile = glob.sync('src/*/index.html')
 
   return htmlfile.map(function(item){
-    const extname = path.extname(item);
-    const basename = path.basename(item,extname);
+    const entriesName = item.split('/')[1]
     const conf = {
-      filename:basename+extname,
+      filename:entriesName+'/index.html',
       template:item,
-      chunks:['runtime','common',basename]
+      chunks:['runtime','common',entriesName+'/index']
     }
-    console.log(conf)
     return new HtmlWebpackPlugin(conf)
   })
+}
+function getEntry(globPath,common=[]){
+  var files = glob.sync(globPath),entries={};
+  files.forEach(function(item,index,arr){
+    const entriesName = item.split('/')[1]
+    entries[entriesName+'/index'] = './'+item;
+  })
+   console.log(entries)
+  return entries;
+
 }

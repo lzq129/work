@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task-1</title>
+</head>
+<body>
+    <h1>js基础之闭包</h1>
+    <div>
+        <p>前置技能：</p>
+        <ul>
+            <li>js语法（包括<a href="http://es6.ruanyifeng.com/">es6</a>）</li>
+            <li><a href="https://www.runoob.com/jsref/met-win-settimeout.html">setTimeout函数</a></li>
+            <li><a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html">闭包</a></li>
+        </ul>
+        <h5>题目：</h5>
+        <pre>   
+            <code>
+                function closure(){
+                    for(var i = 0;i<5;i++){
+                        setTimeout(function(){
+                            console.log(i)
+                        })
+                    }
+                }
+                closure()
+                //1. closure函数执行后会输出什么？为什么？
+                //2. 尝试在/task-1/index.js修改closure函数，输出1、2、3、4、5
+            </code>
+        </pre>
+    </div>
+</body>
+</html>
