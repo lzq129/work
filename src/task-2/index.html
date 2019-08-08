@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task-2</title>
+</head>
+<body>
+    <h1>js基础之this指向（执行环境，也称上下文或者context）</h1>
+    <div>
+        <p>前置技能：</p>
+        <ul>
+            <li>js语法（包括<a href="http://es6.ruanyifeng.com/">es6</a>）</li>
+            <li><a href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html">箭头函数</a></li>
+            <li><a href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html">Javascript 的 this 用法</a></li>
+            <li>箭头函数，文档查看第一项中的<a href="http://es6.ruanyifeng.com/#docs/function">函数扩展</a></li>
+            <li><a href="https://juejin.im/post/59bfe84351882531b730bac2">this、apply、call、bind</a></li>
+        </ul>
+        <p>扩展阅读：</p>
+        <ul>
+            <li><a href="https://github.com/muwoo/blogs/issues/20">js 深入了解执行上下文和执行栈</li>
+            <li><a href="https://yanhaijing.com/es5/#117">可执行代码与执行环境</a></li>
+        </ul>
+        <h5>题目：</h5>
+        <pre>   
+            <code>
+                var name = 'Global'
+                var context = {
+                    name:'context',
+                    whoami1: function(){
+                        console.log(this.name)
+                    },
+                    whoami2: ()=>{
+                        console.log(this.name)
+                    }
+                }
+                var context1 = {
+                    name:'context1'
+                }
+                //1.在浏览器环境非严格模式下分别执行context.whoami1()、context.whoami2()会输出什么
+                //2.在浏览器环境非严格模式下下分别执行以下代码会输出什么
+                var whoami1 = context.whoami1()
+                whoami1()
+                //3. 不改动原来的代码的情况下，使用apply/call/bind三种方法使context.whoami1()输出'context1
+                //代码写在本文件对应的js中
+                //注意:本js编译es6之后会处于严格模式下
+            </code>
+        </pre>
+    </div>
+</body>
+</html>
