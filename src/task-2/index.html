@@ -37,10 +37,36 @@
                     name:'context1'
                 }
                 //1.在浏览器环境非严格模式下分别执行context.whoami1()、context.whoami2()会输出什么
-                //2.在浏览器环境非严格模式下下分别执行以下代码会输出什么
+                答：
+                    context.whoami1()输出“context”;
+                    context.whoami2()输出“Global”。
+                解释：
+                    this指向最后调用它的那个对象,context.whoami1()对象是context,所以this.name输出
+                    context的name值context;另一种说法,this表示当前执行环境对象,此例当前执行环境对象
+                    为context,所以this.name值为context。
+
+                    而箭头函数不绑定this,其体内的this对象,是定义时所在的对象,非使用时所在对象,必须通
+                    过查找作用链域来决定它的值,如果箭头函数被非箭头函数包含,那么this绑定的是最近一层
+                    非箭头函数的this,否则,this的值为undefined。
+                    
+                    此例箭头函数中，函数内this指向全局对象。所以this.name值为"Global"。
+                    es6参考:
+                    -箭头函数中，对象不构成单独的作用域，此例中导致whoami2头函数定义时的作用域就是全局作用域。
+                    -函数里面的this，如果函数不是作为对象的方法运行，而是单纯作为函数运行，this会指向顶层对象。
+                    但是，严格模式下，这时this会返回undefined。
+
+                //2.在浏览器环境非严格模式下分别执行以下代码会输出什么
                 var whoami1 = context.whoami1()
                 whoami1()
+                答：
+                    输出结果:"Global"。
+                解释：
+                    最后调用this的是window对象。
+
                 //3. 不改动原来的代码的情况下，使用apply/call/bind三种方法使context.whoami1()输出'context1
+
+                    答案见JS代码。
+
                 //代码写在本文件对应的js中
                 //注意:本js编译es6之后会处于严格模式下
             </code>
