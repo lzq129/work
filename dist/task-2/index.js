@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{5:function(o,n){var a={name:"context",whoami1:function(){console.log(this.name)},whoami2:()=>{console.log(this.name)}},i={name:"context1"};a.whoami1(),a.whoami2();var w=a.whoami1;w(),w.apply(i),w.call(i),w.bind(i)()}},[[5,0]]]);
