@@ -1,10 +1,11 @@
-class Timer{
-	constructor(time,isLoop = false,setTime = 1000/*仅限es6以上*/){
+export class Timer{
+	constructor(time,isLoop = false,setTime = 1000/*仅限es6以上*/, immediately = true){
 		this.time = time;
 		this.t = time;//保存实例倒计时时间。
 		this.isLoop = isLoop||false;
 		this.setTime = setTime|| 1000;//或者使用es6的方式在入参处预定义
 		this.callback = () => {}//预定义一个空函数，防止callback函数为定义
+		this.immediately = immediately
 	}
 	nextTick(callback){
 		this.callback = callback//将一个函数作为参数传入nextTick函数
@@ -23,7 +24,7 @@ class Timer{
 		// 	this.isLoop = false;
 		// } 这个可以在构造函数中预定义
 		// 打印this.callback值
-		setTimeout(()=>this.callback(this.time));
+		this.immediately && setTimeout(()=>this.callback(this.time));
 		// 定义一个计时器，默认间隔时间1s
 		var s = setInterval(()=>{
 			if(this.time>0){
@@ -59,11 +60,11 @@ class Timer{
 	}
 }
 
-const timer = new Timer(5)
-timer.nextTick(time=>{
-	console.log('当前倒计时：',time)
-})
-window.timer = timer;
+// const timer = new Timer(5)
+// timer.nextTick(time=>{
+// 	console.log('当前倒计时：',time)
+// })
+// window.timer = timer;
 // timer.start()
 // timer.pause()
 // timer.stop()
@@ -73,7 +74,7 @@ window.timer = timer;
 //会先在该对象上进行查找,如果没找到则会进入对象的原型（也就是.prototype）进行查找,
 //如果没找到,同样的也会进入对象原型的原型进行查找,直到找到或者进入原型链的顶端Object.prototype才会停止.
 //toString.call(prama)实际上是,通过原型链调用了Object.prototype.toString对对象进行数据类型判断.
-const getType = (prama) => {
+export const getType = (prama) => {
 	// let type  = typeof prama;
 	// if(type != "object"){
 	// 	return type;
