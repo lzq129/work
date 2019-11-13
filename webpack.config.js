@@ -3,6 +3,7 @@ const path = require('path');
 const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const env = process.env.NODE_ENV
 console.log(env)
 const entries = getEntry('src/{*.js,**/index.js}');
@@ -29,6 +30,7 @@ const config = {
     hot: true,
     openPage: 'index'
   },
+  resolve: { alias: { vue: 'vue/dist/vue.esm.js' } },
   module: {
     rules: [{
       test: /\.less|\.css$/, 
@@ -42,10 +44,14 @@ const config = {
     }, {
       test: /\.(jpe?g|png|gif|svg)$/i,
       loader: "url-loader?limit=8192&name=images/[name].[ext]"
+    },{
+      test: /\.vue$/i,
+      loader: "vue-loader"
     }]
   },
   plugins: [ 
-    ...HtmlWebpackPlugins()
+    ...HtmlWebpackPlugins(),
+    new VueLoaderPlugin()
   ]
 }
 if(env == 'production') {
